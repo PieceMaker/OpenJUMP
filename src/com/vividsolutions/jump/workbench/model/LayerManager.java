@@ -175,10 +175,24 @@ public class LayerManager {
             Layer oldLayer = getLayer(layerableName);
 
 	        if (oldLayer != null) {
+	        	Collection oldStyles = oldLayer.cloneStyles();
+	        	
+	            boolean firingEvents = isFiringEvents();
+	            setFiringEvents(false);
+
+	            try {
+	            	((Layer) layerable).setStyles(oldStyles);
+	            } finally {
+	                setFiringEvents(firingEvents);
+	            }
+	        	
 	            remove(oldLayer);
+	            
+	            addLayerable(categoryName, layerable);
 	        }
-	
-	        addLayerable(categoryName, layerable);
+	        else {
+	        	addLayerable(categoryName, layerable);
+	        }
 	
     	}
     	
