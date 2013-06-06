@@ -60,7 +60,8 @@ public class EditDataStoreQueryPlugIn extends RunDatastoreQueryPlugIn {
         RunDatastoreQueryPanel panel = (RunDatastoreQueryPanel)panel(context);
         panel.populateConnectionComboBox();
         panel.setQuery((String)properties.get(SQL_QUERY_KEY));
-        panel.setLayerName(context.getLayerManager().uniqueLayerName(layer.getName()));
+        //panel.setLayerName(context.getLayerManager().uniqueLayerName(layer.getName()));
+        panel.setLayerName(layer.getName());
         OKCancelDialog dlg = getDialog(context);
         dlg.setVisible(true);
         return dlg.wasOKPressed();

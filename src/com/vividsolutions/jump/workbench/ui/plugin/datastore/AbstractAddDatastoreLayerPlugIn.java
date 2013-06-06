@@ -37,7 +37,7 @@ public abstract class AbstractAddDatastoreLayerPlugIn extends
             public void run() {
                 Collection selectedCategories = context.getLayerNamePanel()
                         .getSelectedCategories();
-                context.getLayerManager().addLayerable(
+                context.getLayerManager().addOrReplaceLayerable(
                         selectedCategories.isEmpty() ? 
                         StandardCategoryNames.WORKING :
                         selectedCategories.iterator().next().toString(), layer);

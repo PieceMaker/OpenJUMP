@@ -71,7 +71,8 @@ public abstract class AbstractLayerable implements Layerable {
         layerManager.setFiringEvents(false);
 
         try {
-            setName(layerManager.uniqueLayerName(name));
+            //setName(layerManager.uniqueLayerName(name));
+        	setName(name);
         } finally {
             layerManager.setFiringEvents(firingEvents);
         }

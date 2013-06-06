@@ -166,6 +166,23 @@ public class LayerManager {
         //Fire metadata changed so that the visual modified markers are updated. [Jon Aquino]
         fireLayerChanged(layerable, LayerEventType.METADATA_CHANGED);
     }
+    
+    public void addOrReplaceLayerable(String categoryName, Layerable layerable) {
+    	if (layerable instanceof Layer) {
+    		
+    		String layerableName = layerable.getName();
+    		
+            Layer oldLayer = getLayer(layerableName);
+
+	        if (oldLayer != null) {
+	            remove(oldLayer);
+	        }
+	
+	        addLayerable(categoryName, layerable);
+	
+    	}
+    	
+    }
 
     private void reproject(Layer layer, CoordinateSystem coordinateSystem) {
         try {

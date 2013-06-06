@@ -163,7 +163,8 @@ public class RunDatastoreQueryPanel extends ConnectionPanel
     }
     
     public String getLayerName() {
-        return layerManager.uniqueLayerName(layerNameTextField.getText().trim());
+        //return layerManager.uniqueLayerName(layerNameTextField.getText().trim());
+    	return layerNameTextField.getText().trim();
     }
     
     public void setLayerName(String layerName) {
